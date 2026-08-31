@@ -1,12 +1,12 @@
-# Custom Board -- MicroPython Applications
+# SOURYA Board -- MicroPython Applications
 
 ## Overview
 
 This repository contains MicroPython-based applications developed for
-our STM32-based Custom Board.
+our STM32-based SOURYA Board.
 
 The purpose of these examples is to demonstrate how the STM32 side of
-the Custom Board can be programmed using MicroPython for GPIO control,
+the SOURYA Board can be programmed using MicroPython for GPIO control,
 PWM-based control, UART communication, and integration with the ESP32.
 
 ------------------------------------------------------------------------
@@ -33,7 +33,7 @@ microcontroller.
 
 ## Why are we using MicroPython?
 
-MicroPython is being used on the **STM32 side of our Custom Board** to
+MicroPython is being used on the **STM32 side of our SOURYA Board** to
 make hardware development and testing faster and easier.
 
 It allows us to:
@@ -51,9 +51,9 @@ control logic.
 
 ------------------------------------------------------------------------
 
-## MicroPython on Our Custom Board
+## MicroPython on Our SOURYA Board
 
-Our Custom Board contains an STM32 microcontroller and an ESP32 for
+Our SOURYA Board contains an STM32 microcontroller and an ESP32 for
 wireless and higher-level applications.
 
 For the MicroPython applications documented here, the **STM32 runs the
@@ -68,7 +68,7 @@ STM32 MicroPython Firmware
        ↓
 STM32 Hardware Peripherals
        ↓
-Custom Board Hardware
+SOURYA Board Hardware
 ```
 
 When communication with the ESP32 is required, the architecture becomes:
@@ -84,7 +84,7 @@ Application / Wireless Interface
               ↓
       MicroPython Program
               ↓
-      Custom Board Hardware
+      SOURYA Board Hardware
 ```
 
 This provides a clear separation between the wireless/application layer
@@ -133,7 +133,7 @@ from machine import UART
 uart = UART(1, 115200)
 ```
 
-The exact pins and peripherals depend on the particular Custom Board
+The exact pins and peripherals depend on the particular SOURYA Board
 application.
 
 ------------------------------------------------------------------------
@@ -141,7 +141,7 @@ application.
 ## MicroPython Applications in This Project
 
 The MicroPython programs in this project demonstrate several core
-functions of our Custom Board.
+functions of our SOURYA Board.
 
 ### 1. GPIO Control
 
@@ -188,10 +188,10 @@ MicroPython.
 The overall programming model used in these applications is:
 
 ``` text
-User Application
+MicroPython Interface
       │
       ▼
-    ESP32
+USB-TTL/FDTI adapter
       │
       │ UART
       ▼
@@ -213,6 +213,24 @@ responsibilities.
 The ESP32 is responsible for application-level and wireless
 functionality when required.
 
+``` text
+User Application
+      │
+      ▼
+    ESP32
+      │
+      │ UART
+      ▼
+    STM32
+      │
+      ▼
+ MicroPython
+      │
+      ├── GPIO
+      ├── PWM
+      └── Other STM32 Peripherals
+```
+
 ### STM32
 
 The STM32 is responsible for direct hardware control.
@@ -229,7 +247,7 @@ is configured and controlled.
 The general process is:
 
 1.  Install or use a MicroPython-compatible development environment.
-2.  Connect the Custom Board to the computer.
+2.  Connect the SOURYA Board to the computer.
 3.  Ensure the STM32 is running the appropriate MicroPython firmware.
 4.  Open the MicroPython serial/REPL interface.
 5.  Transfer or execute the `.py` program on the STM32.
@@ -244,7 +262,7 @@ MicroPython programs according to their respective documentation.
 ## Important Note
 
 The MicroPython programs are intended to be used with the **pin
-assignments and hardware architecture of our Custom Board**.
+assignments and hardware architecture of our SOURYA Board**.
 
 Therefore, GPIO names and peripheral configurations should not be copied
 directly to another STM32 board without checking that board's pin
@@ -279,7 +297,7 @@ STM32.
 
 ## Summary
 
-MicroPython gives our Custom Board a practical and flexible way to
+MicroPython gives our SOURYA Board a practical and flexible way to
 program the STM32 hardware using Python.
 
 In this project, it is primarily used to:

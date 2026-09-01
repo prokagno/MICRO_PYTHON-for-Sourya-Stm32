@@ -312,3 +312,10 @@ The resulting architecture keeps the system modular:
 
 **ESP32 handles the application/wireless side, while STM32 + MicroPython
 handles the direct hardware-control side.**
+
+
+---
+
+## Author
+
+**Dhanumjay Suragani** — [GitHub Profile](https://github.com/Dhanumjay-Suragani)

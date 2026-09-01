@@ -313,3 +313,10 @@ port → Develop/test → Save final program as `main.py`.**
 
 Once this setup is complete, the STM32 is ready to run the MicroPython
 applications provided in this repository.
+
+
+---
+
+## Author
+
+**Dhanumjay Suragani** — [GitHub Profile](https://github.com/Dhanumjay-Suragani)
